@@ -62,6 +62,11 @@ reg = /<\/?[^>]*>/ig;
 
 
 
+/**
+ * todo
+ * 'aaabbccddd'  'a3b2c2d3'
+ *
+ */
 
 
 
