@@ -278,6 +278,42 @@ window.Mvjssdk = window.Mvjssdk || {};
     }
   };
 
+  /**
+   * 获取dom的某个属性
+   * @param el
+   * @param attr
+   * @returns {*}
+   */
+  core.dom.getCss = function(el, attr){
+    //console.log(el, attr);
+    if (window.getComputedStyle) {
+      return window.getComputedStyle(el, null)[attr];
+    }else if (el.currentStyle) {
+      return el.currentStyle[attr];
+    }else {
+      return el.style[attr];
+    }
+  };
+
+  /**
+   * 删除dom
+   * @param el
+   */
+  core.dom.remove = function(el) {
+    if (el.parentElement) {
+      el.parentElement.removeChild(el);
+    } else {
+      el.remove();
+    }
+  };
+
+  core.dom.getScreenSize = function() {
+    return {
+      width: window.screen.width,
+      height: window.screen.height
+    };
+  };
+
 
 
   //console.log(Mv)
