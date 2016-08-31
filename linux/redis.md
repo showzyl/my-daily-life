@@ -1,4 +1,4 @@
-### redis学习
+### redis study
 
 * redis-cli ping  检查启动没有
 * redis-cli shutdown  关闭redis

@@ -1,4 +1,4 @@
-### mongo学习
+### mongo study
 
 * show dbs 显示所有db
 * use lizi 创建or使用数据库
