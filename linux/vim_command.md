@@ -15,4 +15,7 @@
 
 * ZZ 保存并退出
 * control+f 内容翻页
+* control+b 回退一页
+
+
 
