@@ -223,12 +223,12 @@ window.Mvjssdk = window.Mvjssdk || {};
       return Object.assign(o1, o2);
     }catch (e){
       throw e;
+      let aArgument = [].slice.call(arguments);
       let oRes = {};
-      for(var key in o1){
-        oRes[key] = o1[key];
-      }
-      for(var key in o2){
-        oRes[key] = o2[key];
+      for(let i=0,len=aArgument.length;i<len;i++){
+        for(var key in aArgument[i]){
+          oRes[key] = aArgument[i][key];
+        }
       }
       return oRes;
     }

@@ -17,5 +17,8 @@
 * control+f 内容翻页
 * control+b 回退一页
 
+* ctrl + v j 选取元素 按I 注释一个 Esc   多行注释
+* ctrl + v j 选取元素 按 d   多行取消注释
+
 
 
