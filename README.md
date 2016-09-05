@@ -7,9 +7,15 @@
 4. redis
 5. node
 
-### update 8.31
-* redis study && mongo study
+
+### update 9.5
+* git study
 
 
 ### update 9.1
 * pm2 use log
+
+
+### update 8.31
+* redis study && mongo study
+
