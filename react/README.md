@@ -7,8 +7,11 @@
 * componentWillUpdate 初始化渲染不会调用，更新前调用。
 * componentDidUpdate 初始化渲染不会调用，更新后调用。
 * componentWillUnmount 组件移除前调用。
+* componentWillUnmount 组件移除前调用。
 
 
- 
+
+
+
 
 

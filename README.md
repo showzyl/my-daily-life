@@ -8,6 +8,10 @@
 5. node
 
 
+### update 9.6
+* react backup
+
+
 ### update 9.5
 * git study
 
