@@ -6,6 +6,12 @@
 3. mysql
 4. redis
 5. node
+6. mongo
+
+
+ 
+### update 9.8
+* async use
 
 
 ### update 9.6
