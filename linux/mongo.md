@@ -6,6 +6,13 @@
 * db.dropDatabase() 删除数据库
 * db.collection.drop() 删除集合
 * show collections 显示当前集合
+* db.serverStatus() 查看数据库服务器的状态
+* db.stats() 查询指定数据库统计信息
+* db.getCollectionNames() 获取所有集合
+* db.lizi.findOne() 查一条
+* db.lizi.count() 统计有几条
+
+
 
 
 
