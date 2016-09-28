@@ -21,8 +21,7 @@
 * git remote -v 查看远程库信息
 * git pull 抓取远程最新提交
 * git co . && git clean -xdf  恢复到分支最初状态
-
-
+* git push origin gh-pages  github pages
 
 
 
