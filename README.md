@@ -9,7 +9,11 @@
 6. mongo
 7. module( byline sleep )
 
+
+### update 9.29
+* python study
  
+
 ### update 9.8
 * async use
 
