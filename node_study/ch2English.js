@@ -26,7 +26,7 @@ aTmp.forEach(item => {
 
 console.log(aRes.join(''));
 
-fs.writeFile('./output.txt', aRes.join(''), function (err) {
+fs.writeFile('./output.txt', aRes.join(''), err => {
   if (err) return console.log(err);
   console.log('write success');
 });
