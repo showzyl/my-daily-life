@@ -117,6 +117,140 @@
 # for i, value in d.iteritems():
 #   print i, value
 
+# def f(x):
+#   return x * x
+
+# print map(f, [1,2,3,4,5])
+# print map(map, [1,2,3,4,5])
+
+
+# def f(x, y):
+#   return x + y
+#
+# print reduce(f, [1,2,3,4,5])
+# print sum([1,2,3,4,5])
+
+
+# def f(x, y):
+#   print x,y
+#   return x * 10 + y
+#
+# print reduce(f, [1,2,3])
+
+
+# def is_odd(n):
+#   return n % 2 == 1
+#
+# print filter(is_odd, [1,2,3,4])
+
+
+# def notEmpty(s):
+#   return s and s.strip()
+#
+# print filter(notEmpty, ['A', '', 'B', None, 'C', '  '])
+
+
+
+
+# print sorted([36, 5, 12, 9, 21, '12'])
+
+
+
+# def revertCmp(x, y):
+#   if x < y:
+#     return 1
+#   elif x > y:
+#     return -1
+#   else:
+#     return 0
+#
+#
+# print sorted([36, 5, 12, 9, 21], revertCmp)
+
+
+# def now():
+#   print '123'
+# f = now
+# f()
+# print now.__name__
+# print f.__name__
+
+
+
+# decorator
+# def log(fnc):
+#   def wrapper(*args, **kw):
+#     print 'call %s():' % fnc.__name__
+#     return fnc(*args, **kw)
+#   return wrapper
+#
+# @log
+# def now():
+#   print '123'
+#
+# now()
+
+# import time
+# print time.time()
+
+# def log(txt):
+#   def decorator(fnc):
+#     def wrapper(*args, **kw):
+#       print '%s %s():' % (txt, fnc.__name__)
+#       return fnc(*args, **kw)
+#     return wrapper
+#   return decorator
+#
+# @log('execute')
+# def now():
+#     print '2013-12-25'
+#
+# now()
+
+
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+' a test module '
+
+__author__ = 'Michael Liao'
+
+import sys
+
+def test():
+    args = sys.argv
+    if len(args)==1:
+        print 'Hello, world!'
+    elif len(args)==2:
+        print 'Hello, %s!' % args[1]
+    else:
+        print 'Too many arguments!'
+
+if __name__=='__main__':
+    test()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
