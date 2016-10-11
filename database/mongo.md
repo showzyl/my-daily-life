@@ -24,10 +24,11 @@
 * db.currentOp() 
 
 
+ <!--* 需求: 删除`mongodb`某时间点之前的数据,数据量每天百万级别.-->
 
 
-[inspired by mongodb](http://www.runoob.com/mongodb/)
-[inspired by 索引探索](http://www.jianshu.com/p/3483918ce28c)
+* [inspired by mongodb](http://www.runoob.com/mongodb/)
+* [inspired by 索引探索](http://www.jianshu.com/p/3483918ce28c)
 
 
 
