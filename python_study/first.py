@@ -256,18 +256,79 @@
 # print bart.name
 # print bart.score
 
+#
+# class Student(object):
+#   def __init__(self, name, score):
+#     self.name = name
+#     self.score = score
+#
+#   def print_score(self):
+#     print '%s: %s' % (self.name, self.score)
+#
+# bart = Student('Bart Simpson', 60)
+# bart.print_score()
 
 
-class Student(object):
-  def __init__(self, name, score):
-    self.name = name
-    self.score = score
+# from multiprocessing import Process
+# import os
+#
+# def run_proc(name):
+#   print 'Run child process %s (%s)...' % (name, os.getpid())
+#
+# if __name__=='__main__':
+#   print 'parent is %s: ' % os.getpid()
+#   p = Process(target=run_proc, args=('test',))
+#   print 'start...'
+#   p.start()
+#   p.join()
+#   print 'end...'
 
-  def print_score(self):
-    print '%s: %s' % (self.name, self.score)
 
-bart = Student('Bart Simpson', 60)
-bart.print_score()
+# from multiprocessing import Pool
+# import os, time, random
+#
+# def long_time_task(name):
+#   print 'run task %s (%s)...' % (name, os.getpid())
+#   start = time.time()
+#   time.sleep(random.random() * 3)
+#   end = time.time()
+#   print 'task %s runs %0.2f seconds.' % (name, (end - start))
+#
+# if __name__=='__main__':
+#   print 'parent process %s.' % os.getpid()
+#   p = Pool()
+#   for i in range(9):
+#     p.apply_async(long_time_task, args=(i,))
+#   print 'Waiting for all subprocesses done...'
+#   p.close()
+#   p.join()
+#   print 'All subprocesses done.'
+
+
+import time, threading
+
+print time.time()
+
+def loop():
+  print 'thread %s is running...' % threading.current_thread().name
+  n = 0
+  while n < 4:
+    n = n + 1
+    print 'thread %s >>> %s' % (threading.current_thread().name, n)
+    time.sleep(1)
+  print 'thread %s ended.' % threading.current_thread().name
+
+print 'thread %s is running...' % threading.current_thread().name
+t = threading.Thread(target=loop, name='LoopThread')
+t.start()
+t.join()
+print 'thread %s ended.' % threading.current_thread().name
+
+
+
+
+
+
 
 
 
