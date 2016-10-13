@@ -1,7 +1,7 @@
 ## 我的日常
 
 ### todolist
-1. message queue
+1. message queue ✔️
 2. cache
 3. mysql
 4. redis
@@ -10,6 +10,9 @@
 7. module( byline sleep )
 
 
+
+### update 10.13
+* add message queue folder
 
 
 ### update 10.7

@@ -305,29 +305,67 @@
 #   print 'All subprocesses done.'
 
 
-import time, threading
-
-print time.time()
-
-def loop():
-  print 'thread %s is running...' % threading.current_thread().name
-  n = 0
-  while n < 4:
-    n = n + 1
-    print 'thread %s >>> %s' % (threading.current_thread().name, n)
-    time.sleep(1)
-  print 'thread %s ended.' % threading.current_thread().name
-
-print 'thread %s is running...' % threading.current_thread().name
-t = threading.Thread(target=loop, name='LoopThread')
-t.start()
-t.join()
-print 'thread %s ended.' % threading.current_thread().name
-
-
-
+# import time, threading
+#
+# print time.time()
+#
+# def loop():
+#   print 'thread %s is running...' % threading.current_thread().name
+#   n = 0
+#   while n < 4:
+#     n = n + 1
+#     print 'thread %s >>> %s' % (threading.current_thread().name, n)
+#     time.sleep(1)
+#   print 'thread %s ended.' % threading.current_thread().name
+#
+# print 'thread %s is running...' % threading.current_thread().name
+# t = threading.Thread(target=loop, name='LoopThread')
+# t.start()
+# t.join()
+# print 'thread %s ended.' % threading.current_thread().name
+#
 
 
+# import time, threading
+#
+# balance = 0
+#
+# def chang_it(n):
+#   global balance
+#   balance = balance + n
+#   balance = balance - n
+#
+# def run_thread(n):
+#   for i in range(10000):
+#     chang_it(n)
+#
+# t1 = threading.Thread(target=run_thread, args=(5,))
+# t2 = threading.Thread(target=run_thread, args=(8,))
+#
+# t1.start()
+# t2.start()
+# t1.join()
+# t2.join()
+# print balance
+
+
+# import hashlib
+#
+# md5 = hashlib.md5()
+# md5.update('how to use md5 in ')
+# #md5.update('python hashlib?')
+# l = md5.hexdigest()
+# print l
+
+#
+# import itertools
+# natuals = itertools.count(1)
+# # print natuals
+#
+# for n in natuals:
+#   print n
+
+# tcp/ip
 
 
 
