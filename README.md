@@ -6,7 +6,7 @@
 3. mysql
 4. redis
 5. node
-6. mongo
+6. mongo ✔️
 7. module( byline sleep )
 
 
