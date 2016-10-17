@@ -11,6 +11,7 @@
 * db.getCollectionNames() 获取所有集合
 * db.lizi.findOne() 查一条
 * db.lizi.find() 查所有
+* db.install.find({ ttl: { $lt: ISODate() } }) 加条件的查找
 * db.lizi.count() 统计有几条
 * db.lizi.update({"l": 123}, {"l": '456'}, {multi:true}) 更新数据 multi是true则更新多行
 * db.lizi.remove({"l": 123}, 1) 删除数据 不要第二个参数都删除
