@@ -8,7 +8,6 @@
 5. node
 6. mongo ✔
 7. module( byline sleep )
-8. msg queen ✔
 
 
 
