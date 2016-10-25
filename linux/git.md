@@ -12,13 +12,16 @@
 * git checkout(co) 分支名 切换分支
 * git rm filename 暂存区删除某个文件
 * git remote add origin git@github.com:showzyl/learngit.git 添加远程仓库
+* git remote rm origin git@github.com:showzyl/learngit.git 删除远程仓库
+* git pull \[remotename\] \[localBranchName\] 拉取远程仓库
+* git push \[remotename\] \[localBranchName\] 推送远程仓库
+* git remote -v 查看远程库信息
 * git push -u origin master  推送到远程仓库
 * git checkout -b 分支名 创建并切换分支
 * git branch(br) 查看当前分支
 * git merge 分支名  合并分支
 * git branch -d 分支名 删除分支
 * git stash 存储修改
-* git remote -v 查看远程库信息
 * git pull 抓取远程最新提交
 * git co . && git clean -xdf  恢复到分支最初状态
 * git push origin gh-pages  github pages
