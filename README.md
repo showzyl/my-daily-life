@@ -11,6 +11,7 @@
 8. msg_queen ✔
 9. [awk](https://segmentfault.com/a/1190000007338373?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
 10. docker 
+11. bash 脚本  
 
 
 
