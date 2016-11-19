@@ -24,6 +24,7 @@
 * git branch -d 分支名 删除分支
 * git stash 把文件放进暂存区
 * git stash pop 恢复暂存区的文件
+* git stash clear 清理暂存区
 * git pull 抓取远程最新提交
 * git co . && git clean -xdf  恢复到分支最初状态
 * git push origin gh-pages  github pages
