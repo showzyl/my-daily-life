@@ -29,6 +29,11 @@
 * git co . && git clean -xdf  恢复到分支最初状态
 * git push origin gh-pages  github pages
 * git co - 切换回刚才的分支
+* git tag -a v1.4 -m 'my msg' 新增tag
+* git push origin --tags 推送所有tag
+* git push origin v0.0.1 推送某个版本tag
+* git tag -d v0.0.1 删除某个版本
+* git push origin :refs/tags/v0.0.1 删除后推送远程
 
 
 
