@@ -3,7 +3,7 @@ var cfg = require('./config');
 var sqs = new AWS.SQS(cfg);
 
 var params = {
-  QueueName: '' /* required */
+  QueueName: 'test' /* required */
 };
 
 sqs.getQueueUrl(params, function(err, data) {

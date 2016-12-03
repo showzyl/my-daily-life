@@ -4,3 +4,7 @@ module.exports = {
   secretAccessKey: 'YOUR_ACCESS_KEY',
   region: ''
 }
+
+
+
+
