@@ -34,6 +34,7 @@
 * git push origin v0.0.1 推送某个版本tag
 * git tag -d v0.0.1 删除某个版本
 * git push origin :refs/tags/v0.0.1 删除后推送远程
+* git reset --soft v1.4  没有`push`的版本回滚
 
 
 
