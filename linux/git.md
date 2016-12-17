@@ -24,6 +24,7 @@
 * git branch -d 分支名 删除分支
 * git stash 把文件放进暂存区
 * git stash pop 恢复暂存区的文件
+* git stash list 列出暂存区的文件
 * git stash clear 清理暂存区
 * git pull 抓取远程最新提交
 * git co . && git clean -xdf  恢复到分支最初状态
@@ -35,6 +36,7 @@
 * git tag -d v0.0.1 删除某个版本
 * git push origin :refs/tags/v0.0.1 删除后推送远程
 * git reset --soft v1.4  没有`push`的版本回滚
+* git revert xxx 提交后的回滚某版本,此版本之后的改动消失.`慎用`
 
 
 
