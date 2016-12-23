@@ -1,3 +1,5 @@
+inspire by [here](https://test120.quip.com/6EJdAvUqokDu)
+
 JS 元编程
 
 元编程 (metaprogramming) 就是用代码去写代码。
