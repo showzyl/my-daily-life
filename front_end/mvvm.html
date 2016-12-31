@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="root">
+  <h1 lait-model="title"></h1>
+  <div>
+    <div lait-model="user"></div>
+    <ul lait-list="todos">
+      <div>
+        <li lait-list-item="todos">
+          <p lait-class="todos:done" lait-model="todos:creator"></p>
+          <p lait-model="todos:date"></p>
+          <p lait-model="todos:content"></p>
+          <ul lait-list="todos:members">
+            <li lait-list-item="todos:members">
+              <span lait-model="todos:members:name"></span>
+            </li>
+          </ul>
+        </li>
+      </div>
+    </ul>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  class Register {
+    constructor() {
+      this.routes = [];
+    }
+
+    regist(obj, k, fn) {
+      const route = this.routes.find((el) => {
+          let result;
+      if ((el.key === k || el.key.toString() === k.toString())
+        && Object.is(el.obj, obj)) {
+        result = el;
+      }
+      return result;
+    });
+      if (route) {
+        route.fn.push(fn);
+      } else {
+        this.routes.push({
+          obj,
+          key: k,
+          fn: [fn],
+        });
+      }
+    }
+
+    build() {
+      this.routes.forEach((route) => {
+        observer(route.obj, route.key, route.fn);
+    });
+    }
+  }
+
+  class Latte {
+    constructor(latte) {
+      if(!latte.el || !latte.data) {
+        throw new Error('Latte need an object to observe.');
+      }
+      this.$data = latte.data;
+      this.$register = new Register();
+      this.$el = document.querySelector(latte.el);
+      this.$eventList = latte.eventList;
+      this.$frag = Latte.node2Fragment(this.$el);
+      this.scan(this.$frag);
+      this.$el.appendChild(this.$frag);
+      this.$register.build();
+    }
+
+    static node2Fragment(el) {
+      const fragment = document.createDocumentFragment();
+      let child = el.firstChild;
+      while (child) {
+        fragment.appendChild(child);
+        child = el.firstChild;
+      }
+      return fragment;
+    }
+
+    scan(node) {
+      if (node === this.$frag || !node.getAttribute('lait-list')) {
+        let childs = [];
+        if(node.children) {
+          childs = [...node.children];
+        } else {
+          [...node.childNodes].forEach((child) => {
+            if(child.nodeType === 1) {
+            childs.push(child);
+          }
+        });
+        }
+        childs.forEach((child) => {
+          if (node.path) {
+          child.path = node.path;
+        }
+        this.parseEvent(child);
+        this.parseClass(child);
+        this.parseModel(child);
+        if (child.children.length) {
+          this.scan(child);
+        }
+      });
+      } else {
+        this.parseList(node);
+      }
+    }
+
+    parseData(str, node) {
+      const list = str.split(':');
+      let data;
+      let nowPath;
+      let arrayCounter = 1;
+      const path = [];
+      list.forEach((key, index) => {
+        if (index === 0) {
+        data = this.$data[key];
+      } else if (node.path) {
+        nowPath = node.path[arrayCounter];
+        arrayCounter += 1;
+        if (nowPath === key) {
+          data = data[key];
+        } else {
+          path.push(nowPath);
+          data = data[nowPath][key];
+          arrayCounter += 1;
+        }
+      } else {
+        data = data[key];
+      }
+      path.push(key);
+    });
+      if (node.path && node.path.length > path.length) {
+        const lastPath = node.path[node.path.length - 1];
+        //if (typeof lastPath === 'number') {
+        data = data[lastPath];
+        path.push(lastPath);
+        //}
+      }
+      //if (!node.path || node.path !== path) {
+      node.path = path;
+      //}
+      return { path, data };
+    }
+
+    parseEvent(node) {
+      if (node.getAttribute('lait-event')) {
+        const eventName = node.getAttribute('lait-event');
+        const type = this.$eventList[eventName].type;
+        const fn = this.$eventList[eventName].fn.bind(node);
+        if (type === 'input') {
+          let cmp = false;
+          node.addEventListener('compositionstart', () => {
+            cmp = true;
+        });
+          node.addEventListener('compositionend', () => {
+            cmp = false;
+          node.dispatchEvent(new Event('input'));
+        });
+          node.addEventListener('input', function input() {
+            if (!cmp) {
+              const start = this.selectionStart;
+              const end = this.selectionEnd;
+              fn();
+              this.setSelectionRange(start, end);
+            }
+          });
+        } else {
+          node.addEventListener(type, fn);
+        }
+      }
+    }
+
+    parseClass(node) {
+      if (node.getAttribute('lait-class')) {
+        const className = node.getAttribute('lait-class');
+        const dataObj = this.parseData(className, node);
+        if (!node.classList.contains(dataObj.data)) {
+          node.classList.add(dataObj.data);
+        }
+        this.$register.regist(this.$data, dataObj.path, (old, now) => {
+          node.classList.remove(old);
+        node.classList.add(now);
+      });
+      }
+    }
+
+    parseModel(node) {
+      if (node.getAttribute('lait-model')) {
+        const modelName = node.getAttribute('lait-model');
+        const dataObj = this.parseData(modelName, node);
+        if (node.tagName === 'INPUT') {
+          node.value = dataObj.data;
+        } else {
+          node.innerText = dataObj.data;
+        }
+        this.$register.regist(this.$data, dataObj.path, (old, now) => {
+          if (node.tagName === 'INPUT') {
+          node.value = now;
+        } else {
+          node.innerText = now;
+        }
+      });
+      }
+    }
+
+    parseList(node) {
+      console.log('NODE')
+      console.log(node.path)
+      const parsedItem = this.parseListItem(node);
+      const itemEl = parsedItem.itemEl;
+      const parentEl = parsedItem.parentEl;
+      const list = node.getAttribute('lait-list');
+      const listData = this.parseData(list, node);
+      listData.data.forEach((_dataItem, index) => {
+        const copyItem = itemEl.cloneNode(true);
+      copyItem.$data = _dataItem;
+      //if (node.path) {
+      copyItem.path = node.path.slice();
+      //}
+      copyItem.path.push(index);
+      this.parseEvent(copyItem);
+      this.parseClass(copyItem);
+      this.parseModel(copyItem);
+      this.scan(copyItem);
+      parentEl.insertBefore(copyItem, itemEl);
+    });
+      parentEl.removeChild(itemEl);
+      this.$register.regist(this.$data, listData.path, () => {
+        while (parentEl.firstChild) {
+        parentEl.removeChild(parentEl.firstChild);
+      }
+      const thisListData = this.parseData(list, node);
+      parentEl.appendChild(itemEl);
+      thisListData.data.forEach((_dataItem, index) => {
+        const copyItem = itemEl.cloneNode(true);
+      copyItem.$data = _dataItem;
+      if (node.path) {
+        copyItem.path = node.path.slice();
+      }
+      copyItem.path.push(index);
+      this.parseEvent(copyItem);
+      this.parseClass(copyItem);
+      this.parseModel(copyItem);
+      this.scan(copyItem);
+      parentEl.insertBefore(copyItem, itemEl);
+    });
+      parentEl.removeChild(itemEl);
+    });
+    }
+
+    parseListItem(node) {
+      const me = this;
+      let target;
+      (function getItem(nodeToScan) {
+        [...nodeToScan.children].forEach((thisNode) => {
+          if (nodeToScan.path) {
+          thisNode.path = nodeToScan.path.slice();
+        }
+        if (thisNode.getAttribute('lait-list-item')) {
+          target = {
+            itemEl: thisNode,
+            parentEl: nodeToScan
+          }
+        } else {
+          me.parseEvent(thisNode);
+          me.parseClass(thisNode);
+          me.parseModel(thisNode);
+          getItem(thisNode);
+        }
+      });
+      }(node));
+      return target;
+    }
+  }
+
+  function observer(obj, k, callback) {
+    if (!obj || (!k && k !== 0)) {
+      throw new Error('Please pass an object to the observer.');
+    }
+    if (Object.prototype.toString.call(k) === '[object Array]') {
+      observePath(obj, k, callback);
+    } else {
+      let old = obj[k];
+      if (!old) {
+        throw new Error('The key to observe is undefined.');
+      }
+      if (Object.prototype.toString.call(old) === '[object Array]') {
+        observeArray(old, callback);
+      } else if (old.toString() === '[object Object]') {
+        observeAllKey(old, callback);
+      } else {
+        Object.defineProperty(obj, k, {
+            enumerable: true,
+            configurable: true,
+            get: () => old,
+          set: (now) => {
+          if (now !== old) {
+            callback.forEach((fn) => {
+              fn(old, now);
+          });
+          }
+          old = now;
+        },
+      });
+      }
+    }
+  }
+
+  function observePath(obj, paths, callback) {
+    let nowPath = obj;
+    let key;
+    paths.forEach((path, index) => {
+      const path2Num = parseInt(path, 10);
+    let pathArr = path;
+    if (path2Num === pathArr) {
+      pathArr = path2Num;
+    }
+    if (index < paths.length - 1) {
+      nowPath = nowPath[pathArr];
+    } else {
+      key = pathArr;
+    }
+  });
+    observer(nowPath, key, callback);
+  }
+
+  function observeArray(arr, callback) {
+    const oam = ['push', 'pop', 'shift', 'unshift', 'splice', 'sort', 'reverse'];
+    const arrayProto = Array.prototype;
+    const hackProto = Object.create(Array.prototype);
+    oam.forEach((method) => {
+      Object.defineProperty(hackProto, method, {
+      writable: true,
+      enumerable: true,
+      configurable: true,
+      value: function operateArray(...arg) {
+      const old = arr.slice();
+      const now = arrayProto[method].call(this, ...arg);
+      callback.forEach((fn) => {
+        fn(old, this, ...arg);
+    });
+      return now;
+    },
+  });
+  });
+    Object.setPrototypeOf(arr, hackProto);
+  }
+
+  function observeAllKey(obj, callback) {
+    Object.keys(obj).forEach((key) => {
+      observer(obj, key, callback);
+    });
+  }
+
+
+  let data = {
+    title: 'todo',
+    user: 'mirone',
+    todos: [
+      {
+        creator: 'keal',
+        done: 'undone',
+        content: 'writeMVVM',
+        date: '2016-11-17',
+        members: [
+          {
+            name: 'kaito'
+          },
+          {
+            name: 'hito'
+          },
+          {
+            name: 'QAQ'
+          }
+        ]
+      },
+      {
+        creator: 'mirone',
+        done: 'undone',
+        content: 'writeNode',
+        date: '2016-12-17',
+        members: [
+          {
+            name: 'hitomiao'
+          },
+          {
+            name: 'miaomiao'
+          }
+        ]
+      }
+    ]
+  }
+  new Latte({
+    el: '#root',
+    data
+  })
+
+  data.todos[0].done = 'done'
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
