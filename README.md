@@ -2,16 +2,16 @@
 
 ### todolist
 1. message queue ✔️
-2. cache
-3. mysql
+2. cache 
+3. mysql ✔
 4. redis
-5. node
+5. node ✔
 6. mongo ✔
 7. module( byline sleep )
 8. msg_queen ✔
 9. [awk](https://segmentfault.com/a/1190000007338373?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
 10. docker 
-11. bash 脚本  
+11. bash 脚本 ✔
 
 
 
