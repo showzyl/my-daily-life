@@ -55,6 +55,9 @@ reflow
 3、实例继承
 4、拷贝继承
 
+如何改变this?
+`call`和`apply`和`bind`区别联系是什么?
+
 new操作符具体干了什么呢?
 
 1、创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型。
@@ -89,6 +92,8 @@ jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页
 * HTTP协议
 * WEB安全
 * 算法
+* 现在多少,想要多少
+
 
 
 * 从输入url到页面加载完成发生了什么?
