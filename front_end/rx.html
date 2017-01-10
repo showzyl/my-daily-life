@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<p>Start Typing!</p>
+<input type="text" id="textInput"></input>
+<!--<ul id="results"></ul>-->
+<div id="result"></div>
+
+<!--<script src="rx.js"></script>-->
+
+<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/rxjs/2.2.26/rx.js"></script>-->
+<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/rxjs/2.2.26/rx.async.js"></script>-->
+<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/rxjs/2.2.26/rx.coincidence.js"></script>-->
+<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/rxjs/2.2.26/rx.binding.js"></script>-->
+<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/rxjs/2.2.26/rx.time.js"></script>-->
+<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/rxjs-dom/2.0.7/rx.dom.js"></script>-->
+
+<script src="https://unpkg.com/@reactivex/rxjs@5.0.0-beta.7/dist/global/Rx.umd.js"></script>
+<script src="http://s5.cp.360.cn/trade/2013/static/v1/js/src/lib/jquery-1.10.2.min.js"></script>
+
+<script>
+  $(function () {
+
+    // auto-complete
+    const Observable = Rx.Observable
+    const input = document.querySelector('input')
+
+    const search$ = Observable.fromEvent(input, 'input')
+        .map(e => e.target.value)
+    .filter(value => value.length >= 1)
+    .throttleTime(100)
+      .distinctUntilChanged()
+      .switchMap(term => Observable.fromPromise(wikiIt(term)))
+    .subscribe(
+      x => renderSearchResult(x),
+      err => console.error(err)
+    )
+
+
+    function renderSearchResult (result) {
+      document.querySelector('#result').innerHTML = result[1]
+          .map(r => `<li>${r}</li>`)
+    .join('')
+    }
+
+    function wikiIt (term) {
+      var url = 'http://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=' + encodeURIComponent(term) + '&origin=*';
+      return $.getJSON(url)
+    }
+
+  })
+</script>
+</body>
+</html>
