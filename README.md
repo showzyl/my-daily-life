@@ -12,10 +12,18 @@
 9. [awk](https://segmentfault.com/a/1190000007338373?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
 10. docker 
 11. bash 脚本 ✔
+12. math 
+13. python 
+14. machine leaning 
 
 
 
-### update 10.13
+
+### update 17.1.11
+* add rx.js demo
+
+
+### update 16.10.13
 * add message queue folder
 
 
