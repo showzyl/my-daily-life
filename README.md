@@ -18,6 +18,9 @@
 
 
 
+### update 17.1.19
+* add R
+
 
 ### update 17.1.11
 * add rx.js demo
