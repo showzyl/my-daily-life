@@ -21,8 +21,8 @@ reflow
 * 数据类型
 
 ```
-栈：原始数据类型（Undefined，Null，Boolean，Number、String） 
-堆：引用数据类型（对象、数组和函数）
+原始数据类型（Undefined / Null / Boolean / Number / String） 
+引用数据类型（Object / Array / Function / Date / RegExp）
 
 1.字符串转化为数字，例如'12.3b'
 2.数组转字符串
@@ -89,7 +89,7 @@ jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页
 
 * 如何写一个组件 (详细说明)
 * 前端性能优化
-* HTTP协议
+* HTTP协议 / HTTP2
 * WEB安全
 * 算法
 * 现在多少,想要多少
