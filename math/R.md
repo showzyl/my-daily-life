@@ -21,8 +21,10 @@
 
 ### matrix(x,4,4,byrow=T)
 
-* 定义矩阵
+### 定义矩阵 && 求矩阵的秩
 
+* a = matrix(c(2,3,1,-2),ncol = 2 )
+* qr(a)$rank 
 
 ```
  
