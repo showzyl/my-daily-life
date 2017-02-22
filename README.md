@@ -17,6 +17,8 @@
 14. deep leaning 
 
 
+### update 17.2.22
+* add matrix
 
 ### update 17.1.19
 * add R
