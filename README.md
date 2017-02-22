@@ -14,7 +14,7 @@
 11. bash 脚本 ✔
 12. math 
 13. python 
-14. machine leaning 
+14. deep leaning 
 
 
 
