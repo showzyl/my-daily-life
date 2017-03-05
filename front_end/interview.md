@@ -84,6 +84,7 @@ jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页
 * 路由
 * ECMAScript 6
 * Nodejs
+* 异步方案 promise async await
 
 ### 综合
 
