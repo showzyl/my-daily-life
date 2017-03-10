@@ -83,6 +83,8 @@ jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页
 * Canvas
 * 路由
 * ECMAScript 6
+* react/vue设计思想
+* `虚拟dom`/`双向数据绑定` 如何实现
 * Nodejs
 * 异步方案 promise async await
 
