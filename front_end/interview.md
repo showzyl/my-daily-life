@@ -7,7 +7,7 @@
 position
 自适应
 垂直水平居中
-重点移动端
+移动端 layout 
 repaint
 reflow
 ```
@@ -84,9 +84,11 @@ jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页
 * 路由
 * ECMAScript 6
 * react/vue设计思想
-* `虚拟dom`/`双向数据绑定` 如何实现
-* Nodejs
-* 异步方案 promise async await
+* 虚拟dom/双向数据绑定 如何实现
+* node 异步模型简单概述一下，node 在性能上的优缺点，以及为什么？ `promise async await`
+* 前后端分离的原理及意义
+* 你觉得你最大的优势(可以多个)是什么？你为什么选择前端？
+* 设计模式
 
 ### 综合
 
