@@ -97,7 +97,6 @@ jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页
 * 算法
 * 遇到了什么样的bug,你是如何去解决的? 简单说说解决问题的思路.
 * 模块化和组件化,如何划分,如何解耦
-* 现在多少,想要多少?
 
 
 
