@@ -86,6 +86,7 @@ jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页
 * react/vue设计思想
 * 虚拟dom/双向数据绑定 如何实现
 * node 异步模型简单概述一下，node 在性能上的优缺点，以及为什么？ `promise async await`
+[demo1](https://zhuanlan.zhihu.com/p/25855075?utm_medium=social&utm_source=qq?utm_medium=social&utm_source=qq)
 * 前后端分离的原理及意义
 * 你觉得你最大的优势(可以多个)是什么？你为什么选择前端？
 * 设计模式
