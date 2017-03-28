@@ -122,8 +122,12 @@ GUI框架的某个服务会通过`epoll`的方式监听设备输入文件,窗口
 
 6.浏览器如何将页面展现出来？
 
-
-
+首先，解析 HTML Source，构建 DOM Tree；
+同时，解析 CSS Style，构建 CSSOM Tree；
+然后，组合 DOM Tree 与 CSSOM Tree，去除不可见元素，构建 Render Tree；
+再执行 Reflow，根据 Render Tree 计算每个可见元素的布局（几何属性）；
+最后，执行 Repaint，通过绘制流程，将每个像素渲染到屏幕上。
+[reflow&repaint](https://acrens.github.io/2017/03/23/2017-03-22-reflow&repaint/)
 ```
 
 ```
