@@ -17,6 +17,9 @@
 14. deep leaning 
 
 
+### update 17.3.31
+* add react advanced technique
+
 ### update 17.2.22
 * add matrix
 
