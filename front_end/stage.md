@@ -12,12 +12,12 @@
     - layout.js
     - license.js
     - loop.js
-    - matrix.js
-    - pin.js
+    - matrix.js // 矩阵
+    - pin.js 
     - root.js // dom树根节点
     - str.js
     - texture.js
-    - tree.js
+    - tree.js 
     addon
         - easing.js
         - mouse.js
@@ -27,8 +27,8 @@
         - web.js
     util
         - await.js // `await`语法糖
-        - create.js
-        - event.js
+        - create.js // `Object.create`
+        - event.js // 
         - extend.js // 实现`js继承`
         - insert.js
         - is.js // 判断数据类型 copy from underscore
@@ -37,8 +37,8 @@
         - now.js // date函数
         - once.js
         - repeat.js
-        - stats.js
-        - string.js
+        - stats.js // 统计模块(暂无)
+        - string.js // 比较两个字符串
 ```
 
 ### core.js
@@ -46,8 +46,9 @@
 ```
 核心函数
 拿到调用传入的参数cb/obj后分别进行实例化.
-如果创建的是`canvas`则调用`app()`,然后调用`start函数`
-`start函数`调用了`loader/web.js`的`AppLoader函数`
+(1)如果创建的是`canvas`则调用`app()`,然后调用`start()`
+`start()`调用了`loader/web.js`的`AppLoader()`
+(2)如果创建的是`资源`,调用`atlas.js`
 ```
 
 ### loader/web.js
@@ -67,7 +68,7 @@
 
 ```
 构建dom树根节点
-
+`background``viewport``viewbox`
 
 
 
