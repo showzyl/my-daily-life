@@ -13,11 +13,18 @@
 	/**
 	 *  捕捉报错
 	 */
+	function getErr() {
+		window.onerror = function () {
 
+		}
+	}
 
 	/**
 	 *  异常上报
 	 */
+	function sendErr() {
+
+	}
 
 
 
