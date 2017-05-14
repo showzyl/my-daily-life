@@ -24,7 +24,7 @@
 * a = matrix(c(2,3,1,-2),ncol = 2 )
 * qr(d)$rank 
 
-d = matrix(c(2,1,-1,0,4,0,5,1,1,3,-3,0,0,2,1,2),ncol = 4, nrow = 4 )
+d = matrix(c(2,1,-1,0,4,0,5,1,1,3,-3,0,0,2,1,2),ncol = 4, nrow = 4, byrow = true )
 
 ### 逆
 * solve(a)
