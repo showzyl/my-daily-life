@@ -54,6 +54,7 @@ reflow
 2、原型继承
 3、实例继承
 4、拷贝继承
+5、Object.create()
 
 如何改变this?
 `call`和`apply`和`bind`区别联系是什么?
