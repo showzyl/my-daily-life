@@ -122,6 +122,14 @@
 
 })(window);
 
+/**
+ *
+ * useage:
+ * 
+ * <script src="tt.js" onerror="window.Monitor && Monitor.notify && Monitor.notify('lost', this.src)"></script>
+ *
+ */
+
 
 
 
