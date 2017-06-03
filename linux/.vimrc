@@ -1,48 +1,102 @@
-"syntaxder
-let mapleader = ","
-"Fast reloading of the .vimrc
-map <silent> <leader>ss :source ~/.vimrc<cr>
-"Fast editing of .vimrc
-map <silent> <leader>ee :e ~/.vimrc<cr>
-"When .vimrc is edited, reload it
-autocmd! bufwritepost .vimrc source ~/.vimrc  enable
-
-" 代码折叠
-set foldenable
-" 折叠方法
-" manual    手工折叠
-" indent    使用缩进表示折叠
-" expr      使用表达式定义折叠
-" syntax    使用语法定义折叠
-" diff      对没有更改的文本进行折叠
-" marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
-set foldmethod=syntax
-
-
-"开启语法高亮
-syntax enable
+" set cursorline
+" set cursorcolumn
+if has('gui_running')
+    colorscheme zuturn
+endif
+set expandtab
+set nocompatible
 syntax on
-colorscheme desert
-set t_Co=256
+syntax enable
+set foldmethod=syntax
+set mouse=a
+set helplang=cn
+set nowrap
+set title
+set autoread
+set autochdir
+set number
+set ruler
+set number
+set hlsearch
+set incsearch
+set guifont=Monaco:h16
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set autoindent
+set smartindent
+set encoding=utf8
+set termencoding=utf-8
+set fileencodings=utf-8
+set fencs=utf-8
+set nobackup
+set noswapfile
+set foldmethod=indent
+set cc=80
+set laststatus=2
 
-" 针对不同的文件类型采用不同的缩进格式
-filetype indent on
-"允许插件
+"========JSON FORMAT==========
+"map <buffer> <F6> :%!python -m json.tool<CR>
+nnoremap <leader>fj  :<C-U>call FormatJSON(v:count)<CR>
+nmap <leader>jf :<C-U>call FormatJSON(v:count)<CR>
+"========PYTHONCOMPLETE=======
 filetype plugin on
-"启动自动补全
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python map <buffer> <F5> :call Flake8()<CR>
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript map <buffer> <F5> :JSHint<CR>
+autocmd FileType c set omnifunc=ccomplete#Complete
+let g:pydiction_location='/usr/share/vim/vim73/pydiction/complete-dict'
 filetype plugin indent on
 
+"map <F5> :cc<CR>
+"==========NERDTree===========
+let NERDTreeAutoCenter=1
+let NERDTreeMouseMode=2
+let NERDChristsTree=1
+let NERDTreeShowBookmarks=1
+let NERDTreeShowFiles=1
+let NERDTreeWinPos='left'
+let NERDTreeWinSize=20
+let NERDTreeQuitOnOpen=1
+map <F3> :NERDTreeToggle<CR>
 
-set paste
-"- 则点击光标不会换,用于复制
-set mouse-=a           " 在所有的模式下面打开鼠标。
+"========taglist=======
+let Tlist_Show_One_File=1
+let Tlist_WinWidth=30
+"let Tlist_Use_Horiz_Window = 1
+let Tlist_Use_Right_Window=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+map <F2> :TlistToggle<CR>
 
-set selection=exclusive
-"set selectmode=mouse,key
 
-set number
-set nowrap                    " 取消换行。
-""为方便复制，用<F2>开启/关闭行号显示:
-nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
-" 设置tab缩进
-set tabstop=2
+set nocompatible
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+if has('gui_running')
+    Bundle "Valloric/YouCompleteMe"
+    nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+    nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
+    let g:gitgutter_max_signs=100000
+endif
+
+Bundle 'rizzatti/dash.vim'
+Bundle "vim-scripts/Pydiction"
+Bundle "scrooloose/syntastic"
+Bundle "jiangmiao/auto-pairs"
+Bundle "scrooloose/nerdtree"
+Bundle "vim-scripts/taglist.vim"
+Bundle "vim-scripts/pylint.vim"
+Bundle "airblade/vim-gitgutter"
+Bundle "tpope/vim-fugitive"
+Bundle "nvie/vim-flake8"
+Bundle "Shutnik/jshint2.vim"
+Bundle "vim-scripts/vim-json-line-format"
+let g:syntastic_ignore_files=[".*\.py$"]
+call vundle#end()
+filetype plugin indent on
