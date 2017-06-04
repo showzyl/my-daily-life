@@ -9,7 +9,7 @@
  *
  *  1. when use `window.onerror` err request can't be catched
  *  2. when get an err have to async report to `GA`
- *  3.
+ *  3. document.referrer
  *
  *
  */
