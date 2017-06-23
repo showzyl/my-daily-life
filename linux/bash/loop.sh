@@ -9,5 +9,11 @@ for item in lizi bala test; do
     fi
 done
 
+# prev command success
+if [ $? -eq 0 ];then
+    echo 'build success';
+else
+    echo 'build error';
+fi
 
 
