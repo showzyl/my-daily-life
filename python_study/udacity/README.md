@@ -28,11 +28,11 @@
 #### 回归(Regression)
 
 ```
-
 线性方程 `y = 斜率(slope) * x + 截距(intercept)`
-
-
-
+`error`是指误差而不是指错误
+最小误差平方和算法(Minimizing the sum of squared Errors):
+1. 最小二乘法 (ordiary least squares)
+2. 梯度下降 (gradient descent)
 ```
 
 
