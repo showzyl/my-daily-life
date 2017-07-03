@@ -35,7 +35,38 @@
 2. 梯度下降 (gradient descent)
 ```
 
+#### 异常值(Outlier)
 
+```
+如何检测
+删除算法
+
+1.Train
+2.Remove point with largest residual error (may 10%)
+3.Re-Train
+
+2 && 3 repeat
+
+```
+
+#### 聚类(Clustering)
+
+```
+Most use algorithm: K-meas
+
+1.Assign
+2.Optimize
+
+局部最小值(Local minimum)
+
+```
+
+
+#### 特征缩放(Feature scaling)
+
+```
+
+```
 
 
 
