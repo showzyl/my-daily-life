@@ -81,9 +81,20 @@ IDF
 #### 特征选择(Feater Selection)
 
 ```
+正则化(regularization)
+
+索套回归 (Lasso Regression)
+
+minimize 减少平方误差 + 最大化减少使用特征s数量
+
+SSE(sum of squared errors) + λ|β| (penalty parameter * coefficient of regression)
+```
+
+#### 主成成分分析(PCA)
 
 ```
 
+```
 
 
 
