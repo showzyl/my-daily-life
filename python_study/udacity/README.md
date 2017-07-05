@@ -64,6 +64,22 @@ Most use algorithm: K-meas
 
 #### 特征缩放(Feature scaling)
 
+
+```
+X' = X - X(min) / X(max) - X(min)
+```
+
+#### 文本学习(Learning from text)
+
+```
+词干提取(Stemming)  nltk
+词袋(Bag of words)
+TF
+IDF
+```
+
+#### 特征选择(Feater Selection)
+
 ```
 
 ```
