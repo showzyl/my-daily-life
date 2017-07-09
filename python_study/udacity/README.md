@@ -9,12 +9,17 @@
     先验
     归一化
     后验
+
+缺点: 会间断. 比如`芝加哥公牛`
 ```
 
 #### SVM(Support Vector Machine)
 
 ```
 寻找介于两个类别的数据之间的**超平面**分割线
+某些情况需要忽略`异常(outlier)`的数据
+核技巧(Kernel Trick): 低维映射到多维
+缺点: 可能因为某些数据出现`过拟合(overfitting)`
 ```
 
 #### 决策树(Decision Tree)
