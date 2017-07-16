@@ -11,13 +11,15 @@ from sklearn import linear_model
 reg = linear_model.LinearRegression()
 reg.fit(x, y)
 
-# print reg.coef_
-# print reg.intercept_
+# print 'slope: ', reg.coef_
+# print 'intercept: ', reg.intercept_
 
 ### stats
-print reg.score(x, y)
+print 'r-squared score: ', reg.score(x, y)
 
 
+### draw picture
+# plt.plot(ages, reg.predict(ages), color='blue', linewidth=3)
 
 
 
