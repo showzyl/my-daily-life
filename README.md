@@ -16,6 +16,18 @@
 13. python 
 14. deep leaning 
 
+### update 17.7
+> start my reading & studying plan
+- calculus book 1 (9 weeks)
+- calculus book 2 (9 weeks)
+- stat book (8 weeks)
+- machine learning (16 weeks)
+
+### update 17.6
+* start machine learning
+
+### update 17.4
+* finish matrix && start stats
 
 ### update 17.3.31
 * add react advanced technique
@@ -26,42 +38,32 @@
 ### update 17.1.19
 * add R
 
-
 ### update 17.1.11
 * add rx.js demo
-
 
 ### update 16.10.13
 * add message queue folder
 
-
 ### update 10.7
 * add database folder
-
 
 ### update 9.30
 * lru cache study
 
-
 ### update 9.29
 * python study
- 
 
 ### update 9.8
 * async use
 
-
 ### update 9.6
 * react backup
-
 
 ### update 9.5
 * git study
 
-
 ### update 9.1
 * pm2 use log
-
 
 ### update 8.31
 * redis study && mongo study
