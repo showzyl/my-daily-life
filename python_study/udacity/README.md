@@ -71,8 +71,10 @@
 降维(Dimensionality Reduce)
 Most use algorithm: K-meas
 
-1.Assign
-2.Optimize
+1.分配(Assign)
+2.优化(Optimize)
+
+参数中多少`cluster`非常重要
 
 局部最小值(Local minimum)
 
@@ -83,7 +85,7 @@ Most use algorithm: K-meas
 
 
 ```
-X' = X - X(min) / X(max) - X(min)
+Formula: X' = X - X(min) / X(max) - X(min)
 ```
 
 #### 文本学习(Learning from text)
@@ -113,19 +115,25 @@ SSE(sum of squared errors) + λ|β| (penalty parameter * coefficient of regressi
 
 ```
 
-##### 监督学习
-- 离散: 分类(classification)
-- 连续: 回归(regression)
+##### 监督学习(About Function Approximation)
+- 离散: 分类(classification) 数值只能用自然数或整数单位计算
+- 连续: 回归(regression) 一定区间内可以任意取值
 - 预测
 
-##### 无监督
+##### 无监督(About Compact Description)
 - 聚类
 - 降维
-
 
 1.精确性
 2.训练时间
 3.易用性
+
+
+##### 增强学习(Reinforcement Learning About Delayed Reward)
+
+
+
+
 
 
 
