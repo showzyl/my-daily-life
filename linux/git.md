@@ -38,6 +38,7 @@
 * git push origin :refs/tags/v0.0.1 删除后推送远程
 * git reset --soft v1.4  没有`push`的版本回滚
 * git revert xxx 提交后的回滚某版本,此版本之后的改动消失.`慎用`
+* git shortlog -s | sort -rn | head 输出git repo中前十位最活跃的提交者
 
 
 
