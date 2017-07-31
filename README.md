@@ -17,7 +17,7 @@
 14. deep leaning 
 
 ### update 17.7
-> start my reading & studying plan
+> start my reading & learning plan
 - calculus book 1 (9 weeks)
 - calculus book 2 (9 weeks)
 - stat book (8 weeks)
