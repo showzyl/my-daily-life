@@ -14,8 +14,10 @@ for(let i=0;i<list.length;i++){
     }, 800)
 }
 ```
-
-
+#### linux打印内存信息
+```
+cat /proc/meminfo
+```
 
 
 
