@@ -20,9 +20,10 @@ tree
 du -sh *
 du -sm *|sort -rn|head -10  `最大的10个文件`
 ```
-
-
-
+#### 计算多少个cat进程正在执行
+```
+ps -a | grep cat | wc -l
+```
 
 
 
