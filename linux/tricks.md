@@ -27,6 +27,10 @@ ps -a | grep cat | wc -l
 
 
 
+#### 等待某人登录时打印
+```
+watch -n 15 who
+```
 
 
 
