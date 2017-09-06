@@ -63,6 +63,8 @@ reg = /<\/?[^>]*>/ig;
 // 中文
 reg = /[\u4E00-\u9FA5]/ig;
 
+// base64 image file
+reg = /data\:image\/(jpeg|png|jpg)\;base64\,((\/)?[A-Za-z0-9+/]+)+/ig
 
 /**
  *  
