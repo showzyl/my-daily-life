@@ -103,16 +103,59 @@
 # os.remove("t2.txt")
 
 
-# 异常处理
+# # 异常处理
+# try:
+#     fh = open('te.txt', 'r')
+#     fh.write('test')
+# except IOError:
+#     print 'no te.js file'
+# else:
+#     print 'write success'
+#     fh.close()
+
+# # 异常嵌套
+# try:
+#     fh = open('te.txt', 'r')
+#     try:
+#         fh.write('123')
+#     finally:
+#         print 'going 2 close this file'
+#         fh.close()
+# except IOError:
+#     print 'no file'
+
+# 异常触发
+# def test(level):
+#     if level < 1:
+#         raise Exception('invalid level')
 
 
+# # 这样写抓不到错误，why?
+# def test(p):
+#     if p < 1:
+#     # print 123
+#         raise Exception('invalid level')
+# try:
+#     test(0)
+# except "invalid level":
+#     print 'invalid'
+# else:
+#     print 'hehe'
 
 
+# 自定义异常 `调用时候的参数不能多设置`
+class ValidationError(Exception):
+    def __init__(self, errors):
+        print 'errors: ', errors
+        self.errors = errors
 
+try:
+   raise ValidationError("Bad hostname")
+except ValidationError,e:
+   print e
 
 
 
 
 if __name__ == '__main__':
     pass
-
