@@ -57,11 +57,72 @@ import numpy as np
 # print np.bool(0)
 # print np.float(False)
 
-print np.arange(7, dtype=np.uint16)
+# print np.arange(7, dtype=np.uint16)
+
+# a = np.arange(9)
+# print a
+# print a[3:7]
+
+
+# #多维数组的切片与索引
+# b = np.arange(24).reshape(2,3,4)
+# print b.shape
+# print b
+# print b[0,0,0]
+
+
+# # 数组转置
+# arr = np.arange(15).reshape((3, 5))
+# print arr
+# print arr.T
 
 
 
 
+
+
+# #布尔型索引 Todo
+# names = np.array(['Bob', 'Joe', 'Will', 'Bob', 'Will', 'Joe', 'Joe'])
+# data = np.random.randn(7, 4)
+# names
+# data
+#
+# names == 'Bob'
+# data[names == 'Bob']
+#
+# data[names == 'Bob', 2:]
+# data[names == 'Bob', 3]
+#
+# names != 'Bob'
+# data[-(names == 'Bob')]
+#
+# mask = (names == 'Bob') | (names == 'Will')
+# mask
+# data[mask]
+#
+# data[data < 0] = 0
+# data
+#
+# data[names != 'Joe'] = 7
+# data
+#
+# #花式索引
+# arr = np.empty((8, 4))
+# for i in range(8):
+#     arr[i] = i
+# arr
+#
+# arr[[4, 3, 0, 6]]
+#
+# arr[[-3, -5, -7]]
+#
+# arr = np.arange(32).reshape((8, 4))
+# arr
+# arr[[1, 5, 7, 2], [0, 3, 1, 2]]
+#
+# arr[[1, 5, 7, 2]][:, [0, 3, 1, 2]]
+#
+# arr[np.ix_([1, 5, 7, 2], [0, 3, 1, 2])]
 
 
 
