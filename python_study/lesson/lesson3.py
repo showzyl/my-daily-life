@@ -76,7 +76,65 @@ import numpy as np
 # print arr
 # print arr.T
 
+#数据类型对象
+# a = np.array([1,2,3])
+# print a.dtype.byteorder
+# print a.dtype.itemsize
 
+
+
+
+
+# # 字符串编码
+# print np.dtype('f')
+# print np.dtype('d')
+# print np.dtype('f8')
+# print np.dtype('Float64')
+
+
+# # 组合数组
+# a = np.arange(9).reshape(3,3)
+# print a
+# b = 2 * a
+# print b
+# print np.hstack((a, b))
+# print np.concatenate((a, b), axis=1)
+# print np.vstack((a, b))
+
+# oned = np.arange(2)
+# print oned
+# twice_oned = 2 * oned
+# print twice_oned
+# print np.column_stack((oned, twice_oned))
+# print np.row_stack((oned, twice_oned))
+
+
+
+# # 数组的分割
+# a = np.arange(9).reshape(3, 3)
+# print a
+# print np.hsplit(a, 3)
+# print np.split(a, 3, axis=1)
+# print np.vsplit(a, 3)
+
+
+# # 数组的属性
+# b=np.arange(24).reshape(2,12)
+# print b.ndim
+# print b.size
+# print b.itemsize
+# print b.nbytes
+# print b.real
+# print b.imag
+# print b.flat
+
+
+# 数组的转换
+b = np.array([ 1.+1.j,  3.+2.j])
+print b
+print b.tolist()
+print b.tostring()
+print b.astype(int)
 
 
 
