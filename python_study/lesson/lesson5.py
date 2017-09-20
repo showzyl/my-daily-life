@@ -67,21 +67,36 @@ from pandas import Series, DataFrame
 # print frame2.year
 # print frame2.ix['three']
 
-pop = {'Nevada': {2001: 2.4, 2002: 2.9},
-       'Ohio': {2000: 1.5, 2001: 1.7, 2002: 3.6}}
-frame3 = DataFrame(pop)
-print frame3
-print frame3.T
+# pop = {'Nevada': {2001: 2.4, 2002: 2.9},
+#        'Ohio': {2000: 1.5, 2001: 1.7, 2002: 3.6}}
+# frame3 = DataFrame(pop)
+# print frame3
+# print frame3.T
+
+# pdata = {'Ohio': frame3['Ohio'][:-1],
+#          'Nevada': frame3['Nevada'][:2]}
+# DataFrame(pdata)
+#
+# frame3.index.name = 'year'
+# frame3.columns.name = 'state'
+# print frame3
+# print frame3.values
 
 
+# 索引对象
+# obj = Series(range(3), index=['a', 'b', 'c'])
+# index = obj.index
+# print index
 
 
-
-
-
-
-
-
+df = pd.read_csv('./ex1.csv')
+print df
+print '-----------------'
+print pd.read_table('./ex1.csv', sep=',')
+print '-----------------'
+print pd.read_csv('./ex2.csv', header=None)
+print '-----------------'
+print pd.read_csv('./ex2.csv', names=['a', 'b', 'c', 'd', 'message'])
 
 
 
