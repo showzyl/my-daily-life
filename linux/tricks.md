@@ -32,7 +32,10 @@ ps -a | grep cat | wc -l
 watch -n 15 who
 ```
 
-
+#### 查看组内用户
+```
+lid -g <groupname>
+```
 
 
 
