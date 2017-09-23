@@ -10,10 +10,11 @@ cat /proc/meminfo
 echo "${PATH//:/$'\n'}"
 ```
 
-#### 显示树形结构命令
+#### 显示树形结构命令 打印`zip`文件
 ```
-tree
+tree -fi ~/Desktop/workspace/hybird/dist/nm/* | grep '.zip'
 ```
+
 
 #### 生成关于文件和目录的空间使用情况的报告
 ```
@@ -27,6 +28,7 @@ ps -a | grep cat | wc -l
 
 
 
+
 #### 等待某人登录时打印
 ```
 watch -n 15 who
@@ -37,5 +39,7 @@ watch -n 15 who
 lid -g <groupname>
 ```
 
-
-
+#### 获取内核版本
+```
+uname -a
+```
