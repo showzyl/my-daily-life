@@ -15,6 +15,12 @@ echo "${PATH//:/$'\n'}"
 tree -fi ~/Desktop/workspace/hybird/dist/nm/* | grep '.zip'
 ```
 
+#### 每5行打印其中3行
+```
+sed -n '1~5{N;N;p}' file.txt
+```
+
+
 
 #### 生成关于文件和目录的空间使用情况的报告
 ```
