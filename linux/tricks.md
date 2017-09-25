@@ -20,6 +20,10 @@ tree -fi ~/Desktop/workspace/hybird/dist/nm/* | grep '.zip'
 sed -n '1~5{N;N;p}' file.txt
 ```
 
+#### 忽略SVN文件和文件夹，递归查找最近一小时内修改过的文件
+```
+find . -mmin -60 -not -path "*svn*" -print|more
+```
 
 
 #### 生成关于文件和目录的空间使用情况的报告
