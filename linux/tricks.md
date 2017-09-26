@@ -25,6 +25,11 @@ sed -n '1~5{N;N;p}' file.txt
 find . -mmin -60 -not -path "*svn*" -print|more
 ```
 
+#### 查找和pwd相关的所有文件 linux
+```
+locate pwd
+```
+
 
 #### 生成关于文件和目录的空间使用情况的报告
 ```
