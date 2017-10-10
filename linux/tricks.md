@@ -63,3 +63,14 @@ lid -g <groupname>
 ```
 uname -a
 ```
+
+#### cat useage
+```
+cat filename  把文本文件显示在屏幕上
+cat file1 file2 复制文本文件
+cat file1 file2 > newcombinedfile 合并文本文件
+cat < file1 > file2 #copy file1 to file2 创建新的文本文件
+```
+
+
+
