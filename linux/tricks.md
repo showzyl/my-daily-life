@@ -30,6 +30,11 @@ find . -mmin -60 -not -path "*svn*" -print|more
 locate pwd
 ```
 
+#### 查看端口占用
+```
+lsof -i :8080
+lsof -Pnl +M -i6 | grep 8080
+```
 
 #### 生成关于文件和目录的空间使用情况的报告
 ```
