@@ -72,5 +72,13 @@ cat file1 file2 > newcombinedfile 合并文本文件
 cat < file1 > file2 #copy file1 to file2 创建新的文本文件
 ```
 
+#### awk useage
+```
+awk -F':' '{ print $1 }' /etc/passwd
+
+https://www.cyberciti.biz/faq/bash-scripting-using-awk/
+```
+
+
 
 
