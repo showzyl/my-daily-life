@@ -46,6 +46,13 @@ du -sm *|sort -rn|head -10  `最大的10个文件`
 ps -a | grep cat | wc -l
 ```
 
+#### sed 过滤和替换文本
+```
+sed 's/ /-/g' example.txt
+替换空格为-
+```
+
+
 
 
 
