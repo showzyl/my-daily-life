@@ -14,5 +14,11 @@ func main(){
 
 	var e int
 	fmt.Println(e)
+
+	// 连续声明变量
+	var h, f, g = 123, "hello", false
+	fmt.Println(h)
+	fmt.Println(f)
+	fmt.Println(g)
 }
 
