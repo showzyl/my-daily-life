@@ -54,6 +54,11 @@ sed 's/ /-/g' example.txt
 
 #### df 输出磁盘使用统计数据
 
+#### iconv 转换文件编码
+```
+iconv -f GB18030 -t utf8 t.html > b.html
+```
+
 
 
 #### 等待某人登录时打印
