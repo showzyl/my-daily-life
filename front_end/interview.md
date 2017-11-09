@@ -5,11 +5,11 @@
 ```
 清除浮动方案
 position
-自适应
-垂直水平居中
-移动端 layout 
-repaint
-reflow
+自适应  左右固定中间自适应 
+垂直水平居中 1.table-cell 2.flex 3.translate 4.margin 5.webkit-box
+移动端 layout rem 
+重排
+重绘
 ```
 * 盒子模型  
 * 选择器优先级
