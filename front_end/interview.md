@@ -101,6 +101,9 @@ jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页
 * 如何写一个组件 (详细说明)
 * 前端性能优化
 * 缓存
+```
+强制缓存: Expires Cache-Control
+```
 * HTTP协议 / HTTP2
 ```
 http2 优点：
