@@ -28,7 +28,9 @@ position
 2.数组转字符串
 3.字符串转数组
 4.类数组转数组 `Array.from` && `[].slice.call()`
-
+5.数组去重的方法
+ - Array.from(new Set(arr))
+ - 利用对象`key`唯一
 ```
 * 事件 && 事件委托 && 事件代理 && 阻止冒泡
 ```
