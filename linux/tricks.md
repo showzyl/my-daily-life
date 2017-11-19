@@ -59,6 +59,12 @@ sed 's/ /-/g' example.txt
 iconv -f GB18030 -t utf8 t.html > b.html
 ```
 
+#### 每隔2s查看系统负载
+```
+watch 'cat /proc/loadavg'
+```
+
+
 
 
 #### 等待某人登录时打印
