@@ -86,6 +86,7 @@ jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页
 ```
 正则匹配 邮箱、座机号码
 如何将浮点数点左边的数每三位添加一个逗号，如12000000.11转化为『12,000,000.11』?
+exec、replace、test、match
 ```
 * 模板引擎
 * 前端数据存储 cookie && localstorage && sessionstorage
@@ -94,6 +95,9 @@ jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页
 * 路由
 * ECMAScript 6
 * react/vue设计思想
+```
+vue-route
+```
 * 虚拟dom/双向数据绑定 如何实现
 * node 异步模型简单概述一下，node 在性能上的优缺点，以及为什么？ `promise async await`
 [demo1](https://zhuanlan.zhihu.com/p/25855075?utm_medium=social&utm_source=qq?utm_medium=social&utm_source=qq)
@@ -107,6 +111,8 @@ jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页
 4.代理
 ```
 * 游戏开发经验
+* git工作流
+
 
 
 ### 综合
