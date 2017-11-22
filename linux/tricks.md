@@ -97,6 +97,10 @@ awk -F':' '{ print $1 }' /etc/passwd
 https://www.cyberciti.biz/faq/bash-scripting-using-awk/
 ```
 
+# 报错后让脚本停止执行
+```
+set -euxo pipefail
+```
 
 
 
