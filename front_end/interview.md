@@ -125,6 +125,8 @@ vue-route
 协商缓存 (请求服务器): Etag Last-Modified 
 ```
 * HTTP协议 / HTTP2
+> HTTP报文的组成部分
+> 状态码
 ```
 http2 优点：
 1、二进制格式，解析更高效。
