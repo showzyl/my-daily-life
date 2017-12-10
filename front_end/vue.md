@@ -4,8 +4,17 @@
 - window.performance 统计页面性能
 - Reflect、Proxy 的使用
 - render 逻辑 
+- document.createDocumentFragment() 创建文档碎片提升性能
 - 
-
+```
+var o = { b: 123 };
+Object.defineProperty(o, 'b', {
+  get: function() { return bValue; },
+  set: function(newValue) { bValue = newValue; },
+  enumerable: true,
+  configurable: true,
+});
+```
 
 [剖析Vue原理&实现双向绑定MVVM](https://github.com/DMQ/mvvm)
 
