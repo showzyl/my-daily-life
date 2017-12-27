@@ -16,6 +16,9 @@
 13. python 
 14. deep leaning 
 
+### update 17.12
+> learn block chain
+
 ### update 17.7
 > start my reading & learning plan
 - calculus book 1 (9 weeks)
