@@ -3,7 +3,7 @@
 ### todolist
 1. message queue ✔️
 2. cache 
-3. mysql ✔
+3. [x] mysql 
 4. redis
 5. node ✔
 6. mongo ✔
