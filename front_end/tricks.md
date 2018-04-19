@@ -29,6 +29,33 @@ for(let i=0;i<list.length;i++){
 5、由于秒杀成功概率极小，所以服务器毫无压力
 ```
 
+#### 驼峰转换
+```
+/**
+ * 转换 `-_` 成驼峰
+ * @param {s} s 
+ */
+function convertHump(s, flag){
+	flag = flag || '_'
+	var sRes = s
+
+	let sIndex = sRes.indexOf(flag)
+	sRes = _covert(sRes, sIndex)
+
+	function _covert(sRes, sIndex){
+		if(sIndex === -1){
+			return sRes
+		}else{
+			let wordTmp = sRes[sIndex++]
+			sRes = sRes.replace(sRes[sIndex], sRes[sIndex].toLocaleUpperCase())
+			sRes = sRes.replace(flag, '')
+			sIndex = sRes.indexOf(flag)
+			return _covert(sRes, sIndex)
+		}
+	}
+	return sRes
+}
+```
 
 
 
