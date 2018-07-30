@@ -40,6 +40,18 @@
 * git revert xxx 提交后的回滚某版本,此版本之后的改动消失.`慎用`
 * git shortlog -s | sort -rn | head 输出git repo中前十位最活跃的提交者
 
+#### (git)[https://mp.weixin.qq.com/s/VMSwJIuk1BbcZerVopUWhQ]
+``` 
+1、Git 是一个文件夹
+2、Git 是一个数据库
+3、树（Tree）是一个内部组件
+4、Index 是安装树的地方
+5、Commit就是对树的一次封装
+6、Git历史就是一串commit
+7、HEAD 是对已检出的 commit 的引用
+8、分支是一个指向某一个commit的文本文件
+9、一个 tag 就是指向某一个 commit 的文本文件
+```
 
 
 
