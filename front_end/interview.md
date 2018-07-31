@@ -70,6 +70,7 @@ position
 如何改变this?
 `call`和`apply`和`bind`区别联系是什么?
 如何实现`bind`
+如何实现`promise`
 
 new操作符具体干了什么呢?
 
