@@ -57,6 +57,13 @@ function convertHump(s, flag){
 }
 ```
 
+#### css去掉自带滚动条
+```
+::-webkit-scrollbar {
+    display: none;
+}
+
+```
 
 
 
