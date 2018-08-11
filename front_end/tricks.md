@@ -74,7 +74,20 @@ arrString.split('').reduce(function(res, cur) {
 },{})
 ```
 
+#### 观察者模式简单实现
 
+``` 
+function fireEvent(eventname, eventdata, sid) {
+    var ev = document.createEvent('HTMLEvents');
+    ev.initEvent(eventname, false, true);
+    ev.param = eventdata;
+    doc.dispatchEvent(ev);
+}
+
+document.addEventListener(eventname, function (res) {
+    
+}
+```
 
 
 
