@@ -89,6 +89,11 @@ document.addEventListener(eventname, function (res) {
 }
 ```
 
+#### 生成一个二维数组中有`k`个一维数组
+```
+Array.from({length: k}, () => [])
+```
+
 
 
 
