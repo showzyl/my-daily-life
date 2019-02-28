@@ -97,9 +97,14 @@ awk -F':' '{ print $1 }' /etc/passwd
 https://www.cyberciti.biz/faq/bash-scripting-using-awk/
 ```
 
-# 报错后让脚本停止执行
+#### 报错后让脚本停止执行
 ```
 set -euxo pipefail
+```
+
+#### 下载`video`标签里`blob`视频
+```
+ffmpeg -protocol_whitelist file,http,https,tcp,tls,crypto -i "http://1254235226.vod2.myqcloud.com/2a6c5067vodtransgzp1254235226/4978e7555285890785581204586/drm/v.f230.m3u8?t=5c685282&exper=0&us=xroz4nccud&sign=eb363f6e673bdb9efee2801defe695d6" -c copy video.mp4
 ```
 
 
