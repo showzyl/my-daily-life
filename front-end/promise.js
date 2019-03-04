@@ -1,125 +1,111 @@
-"use strict"
+'use strict'
 
-function PromiseL(executor) {
-  const ctx = this
-  ctx.status = 'pending' // Promise当前的状态
-  ctx.data = undefined  // Promise的值
-  ctx.onResolvedCallback = [] // Promise resolve时的回调函数集，因为在Promise结束之前有可能有多个回调添加到它上面
-  ctx.onRejectedCallback = [] // Promise reject时的回调函数集，因为在Promise结束之前有可能有多个回调添加到它上面
 
-  function resolve(value) {
-    if (ctx.status === 'pending') {
-      ctx.status = 'resolved'
-      ctx.data = value
-      for(let i = 0; i < ctx.onResolvedCallback.length; i++) {
-        ctx.onResolvedCallback[i](value)
-      }
+class MiniPromise {
+
+  constructor(resolver) {
+    const ctx = this
+    // console.log(`resolver: `, resolver)
+
+    // 0 PENDING
+    // 1 FULFILLED
+    // 2 REJECTED
+    this.status = 0
+    this.value = Object.create(null)
+    this.resolveQueue = []
+    this.rejectQueue = []
+
+    // console.log(`this: `, this)
+
+    function resolve(value = ctx.value) {
+      // console.log(`value: `, value)
+      // console.log(`ctx: `, ctx)
+      setTimeout(function () {
+        ctx.status = 1
+        ctx.resolveQueue.forEach(function (callback) {
+          ctx.value = callback(value)
+        })
+      }, 0)
     }
+
+    resolver(resolve, this.reject)
   }
 
-  function reject(reason) {
-    if (ctx.status === 'pending') {
-      ctx.status = 'rejected'
-      ctx.data = reason
-      for(let i = 0; i < ctx.onRejectedCallback.length; i++) {
-        ctx.onRejectedCallback[i](reason)
+
+  reject(reason) {
+    console.log(`reason: `, reason)
+  }
+
+  then(onFulfilled) {
+    const ctx = this
+    return new MiniPromise(function (resolve) {
+      function handle(value) {
+        console.log(`value: `, value)
+        let ret = typeof onFulfilled === 'function' && onFulfilled(value) || value
+        console.log(`ret: `, ret)
+        if( ret && typeof ret ['then'] == 'function'){
+          ret.then(function(value){
+            resolve(value);
+          });
+        } else {
+          resolve(ret);
+        }
       }
-    }
-  }
 
-  try { // 考虑到执行executor的过程中有可能出错，所以我们用try/catch块给包起来，并且在出错后以catch到的值reject掉这个Promise
-    executor(resolve, reject) // 执行executor
-  } catch(e) {
-    reject(e)
-  }
-}
-
-
-// then方法接收两个参数，onResolved，onRejected，分别为Promise成功或失败后的回调
-PromiseL.prototype.then = function(onResolved, onRejected) {
-  const ctx = this
-  let promise2
-
-  // 根据标准，如果then的参数不是function，则我们需要忽略它，此处以如下方式处理
-  onResolved = typeof onResolved === 'function' ? onResolved : function(value) {return value}
-  onRejected = typeof onRejected === 'function' ? onRejected : function(reason) {throw reason}
-
-  if (ctx.status === 'resolved') {
-    // 如果promise1(此处即为this/ctx)的状态已经确定并且是resolved，我们调用onResolved
-    // 因为考虑到有可能throw，所以我们将其包在try/catch块里
-    return promise2 = new Promise(function(resolve, reject) {
-      try {
-        let x = onResolved(ctx.data)
-        if (x instanceof Promise) { // 如果onResolved的返回值是一个Promise对象，直接取它的结果做为promise2的结果
-          x.then(resolve, reject)
-        }
-        resolve(x) // 否则，以它的返回值做为promise2的结果
-      } catch (e) {
-        reject(e) // 如果出错，以捕获到的错误做为promise2的结果
+      if (ctx.status === 0) {
+        ctx.resolveQueue.push(handle)
+      } else if (ctx.status === 1) {
+        handle(ctx.value)
       }
-    })
-  }
-
-  // 此处与前一个if块的逻辑几乎相同，区别在于所调用的是onRejected函数，就不再做过多解释
-  if (ctx.status === 'rejected') {
-    return promise2 = new Promise(function(resolve, reject) {
-      try {
-        let x = onRejected(ctx.data)
-        if (x instanceof Promise) {
-          x.then(resolve, reject)
-        }
-      } catch (e) {
-        reject(e)
-      }
-    })
-  }
-
-  if (ctx.status === 'pending') {
-    // 如果当前的Promise还处于pending状态，我们并不能确定调用onResolved还是onRejected，
-    // 只能等到Promise的状态确定后，才能确实如何处理。
-    // 所以我们需要把我们的**两种情况**的处理逻辑做为callback放入promise1(此处即this/ctx)的回调数组里
-    // 逻辑本身跟第一个if块内的几乎一致，此处不做过多解释
-    return promise2 = new Promise(function(resolve, reject) {
-      ctx.onResolvedCallback.push(function(value) {
-        try {
-          let x = onResolved(ctx.data)
-          if (x instanceof Promise) {
-            x.then(resolve, reject)
-          }
-        } catch (e) {
-          reject(e)
-        }
-      })
-
-      ctx.onRejectedCallback.push(function(reason) {
-        try {
-          let x = onRejected(ctx.data)
-          if (x instanceof Promise) {
-            x.then(resolve, reject)
-          }
-        } catch (e) {
-          reject(e)
-        }
-      })
     })
   }
 }
 
-
-PromiseL.prototype.catch = function(onRejected) {
-  return this.then(null, onRejected)
-}
-
-
-let p = new PromiseL((resolove, reject) => {
-  setTimeout(() => {
-    // resolove(1111)
-    reject(2222222)
-  }, 1000)
+let p = new MiniPromise(function (resolove, reject) {
+  resolove(1111)
+}).then(function (res1) {
+  console.log(`res1: `, res1)
+  return new MiniPromise((resolove, reject) => {
+    setTimeout(() => {
+      resolove(2)
+    }, 200)
+  })
+}).then(function (res2) {
+  console.log(`res2: `, res2)
 })
 
-p.then((res) => {
-  console.log(`res: `, res)
-}).catch((err) => {
-  console.log(`err: `, err)
-})
+// let p = new MiniPromise(function (resolove, reject) {
+//   // setTimeout(() => {
+//   resolove(1111)
+//   // reject(2222222)
+//   // }, 1000)
+// }).then(function (res1) {
+//   console.log(`res1: `, res1)
+// }).then(function (res2) {
+//   console.log(`res2: `, res2)
+// })
+//
+// console.log(`p: `, p)
+
+// p.then((res) => {
+//   console.log(`res: `, res)
+//   return new MiniPromise((resolove, reject) => {
+//     setTimeout(() => {
+//       resolove(333333333333)
+//     }, 1000)
+//   })
+// })
+//   .then((res1) => {
+//   console.log(`res1: `, res1)
+//   return new MiniPromise((resolove, reject) => {
+//     setTimeout(() => {
+//       reject(2)
+//     }, 1000)
+//   })
+// }).then((res2, err) => {
+//   console.log(`res2: `, res2)
+//   console.log(`err: `, err)
+// })
+//   .catch((err) => {
+//   console.log(`err2: `, err)
+// })
